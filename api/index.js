@@ -2,6 +2,7 @@ import express from  'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoutes from './routes/user.route.js';
+import authRoutes from './routes/auth.routes.js';
 // import { MongoClient } from 'mongodb';
 // const uri = "mongodb+srv://ashi:9qLyeXSi!QrUAKV@cluster0.4wzb8fr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 // dotenv.config();
@@ -27,8 +28,11 @@ mongoose
 //   run().catch(console.dir);
 const app = express();
 
+app.use(express.json());
+
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
 
 app.use('/api/user', userRoutes);
+app.use('/api/auth', authRoutes);
