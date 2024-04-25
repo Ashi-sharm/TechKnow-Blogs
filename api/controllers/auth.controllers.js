@@ -59,7 +59,7 @@ export const signin = async (req, res, next) =>{
       return next(errorHandler(400, 'Invalid password'));
     }
     const token = jwt.sign(
-      {id:validUser._id},'Ashi1821'
+      {id:validUser._id, isAdmin: validUser.isAdmin},'Ashi1821'
     );
       const {password: pass, ...rest} = validUser._doc;
       res.status(200).cookie('access_token', token,{
@@ -77,7 +77,7 @@ export const google = async (req, res, next) => {
   try {
     const user = await User.findOne({email});
     if(user){
-      const token = jwt.sign({id: user._id}, "AIzaSyATJO1juo45uI3b0cRKB0SdA3BfbcsJyyQ");
+      const token = jwt.sign({id: user._id, isAdmin: user.isAdmin}, 'Ashi1821');
       const {password, ...rest} = user._doc;
       res.status(200).cookie('access_token', token,{
         httpOnly: true,
@@ -93,7 +93,7 @@ export const google = async (req, res, next) => {
 
         });
         await newUser.save();
-        const token = jwt.sign({ id: newUser._id}, "AIzaSyATJO1juo45uI3b0cRKB0SdA3BfbcsJyyQ");
+        const token = jwt.sign({ id: newUser._id, isAdmin: newUser.isAdmin}, "AIzaSyATJO1juo45uI3b0cRKB0SdA3BfbcsJyyQ");
         const {password, ...rest} = newUser._doc;
         res
           .status(200)

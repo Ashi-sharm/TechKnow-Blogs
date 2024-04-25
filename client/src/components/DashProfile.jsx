@@ -97,6 +97,7 @@ export default function DashProfile() {
       }
       try {
         dispatch(updateStart());
+        console.log("in dash",currentUser._id);
         const res = await fetch(`/api/user/update/${currentUser._id}`,{
           method: 'PUT',
           headers: {
