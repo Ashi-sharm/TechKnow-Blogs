@@ -98,7 +98,7 @@ export default function CreatePost() {
             id="title"
             className="flex-1"
             onChange={(e) =>
-            setFormData({...formData, category: e.target.value})
+            setFormData({...formData, title: e.target.value})
         }
           />
           <Select
