@@ -8,6 +8,8 @@ import postRoutes from './routes/post.route.js'
 // import { MongoClient } from 'mongodb';
 // const uri = "mongodb+srv://ashi:9qLyeXSi!QrUAKV@cluster0.4wzb8fr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 // dotenv.config();
+// const cors = require('cors');
+import cors from 'cors';
 
 
 mongoose
@@ -32,6 +34,7 @@ mongoose
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 
 app.use((req, res, next) => {
