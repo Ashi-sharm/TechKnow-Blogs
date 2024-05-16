@@ -16,6 +16,7 @@ export default function DashUsers() {
       try {
         const res = await fetch(`/api/user/getusers`);
         const data = await res.json();
+        console.log("data",data);
         if (res.ok) {
           setUsers(data.users);
           if (data.users.length < 9) {
@@ -110,7 +111,7 @@ export default function DashUsers() {
              
             </Table.Head>
             {users.map((user) => (
-              <Table.Body key={user._id} className="divide-y" key ={user._id}>
+              <Table.Body className="divide-y" key ={user._id}>
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                   <Table.Cell>
                     {new Date(user.createdAt).toLocaleDateString()}
