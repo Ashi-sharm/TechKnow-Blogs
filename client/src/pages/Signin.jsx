@@ -62,7 +62,7 @@ export default function SignIn() {
         {/* left */}
         <div className='flex-1'>
           <Link to="/" className='font-bold dark:text-white text-4xl'>
-            <span className='px-2 py-1 bg-gradient-to-r from-pink-300 via-orange-300 to-yellow-300 rounded-lg text-white'> Ashi's</span>
+            <span className='px-2 py-1 bg-gradient-to-r from-pink-300 via-orange-300 to-yellow-300 rounded-lg text-white'> TechKnow</span>
             Blog
           </Link>
           <p className='text-sm mt-5'> 
