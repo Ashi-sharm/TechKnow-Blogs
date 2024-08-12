@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
-import { SignInStart, signInFailure, signInSuccess } from '../redux/user/userSlice';
+import { signInStart, signInFailure, signInSuccess } from '../redux/user/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import OAuth from '../components/OAuth';
 
@@ -24,7 +24,7 @@ export default function SignIn() {
     
 
     try {
-      dispatch(SignInStart());
+      dispatch(signInStart());
       const bodyReq = JSON.stringify(formData);
       
       const res = await fetch('/api/auth/signin',{

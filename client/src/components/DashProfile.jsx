@@ -7,7 +7,7 @@ import {app } from '../firebase';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { updateStart, updateFailure,updateSuccess } from '../redux/user/userSlice';
-import { deleteUserStart, deleteUserFailure, deleteUserSuccess, signOutSuccess } from '../redux/user/userSlice';
+import { deleteUserStart, deleteUserFailure, deleteUserSuccess, signoutSuccess } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
 import { HiOutlineExclamationCircle} from 'react-icons/hi';
 import { Link } from 'react-router-dom';
@@ -149,7 +149,7 @@ export default function DashProfile() {
         if(!res.ok){
           console.log(data.message);
         }else{
-          dispatch(signOutSuccess());
+          dispatch(signoutSuccess());
         }
       } catch (error) {
         console.log(error.message);
